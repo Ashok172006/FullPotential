@@ -4,3 +4,6 @@ This is a Python script that implements a drive node for an autonomous rover usi
 ### Class Drive
 The node is **subscribed** to 'joy' and 'encoder' topics. publishing to 'motor_rpm' topic.
 
+/   \
+\   /   
+
