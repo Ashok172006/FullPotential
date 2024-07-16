@@ -9,7 +9,10 @@ This is a Python script that implements a drive node for an autonomous rover usi
  * __self.modeupbtn__ and __self.modednbtn__ : They are used to increment and decrement the pwm values respectively.
  * __self.rotinplace_btn__ : This is a variable(button) responsible for rotating the rover in one place.I have mentioned in breif about this below in the function it is used.
  * __self.steer_unlock_axis__ : This variable is used to unlock the steering control. When the joystick axis with index 4 is manipulated, it toggles the lock state of the steering. This means that the user can enable or disable manual control of the steering.
- * 
+ * __self.steer_samedir_axis__ : This variable is used to control the steering direction in the same direction for all wheels.This allows the rover to steer left or right uniformly.
+ * __self.steer_oppdir_axis__ : This variable is used to control the steering direction in opposite directions for front and rear wheels. This enables the rover to perform more complex maneuvers like rotating in place or crab steering.
+ * __self.full_potential_unlock_axis__ : This variable is used to unlock the full potential of individual wheel control.This means that the user can enable or disable manual control of each wheel independently, allowing for more precise movements and adjustments.
+
 
 #### enc_Callback function() ->
  * The enc_callback function in the code is responsible for processing encoder data received from the rover's wheels.
@@ -19,9 +22,6 @@ This is a Python script that implements a drive node for an autonomous rover usi
  * The modeupbtn and modednbtn variables serve as indices in the d_arr array. As the index increases, the corresponding PWM (Pulse Width Modulation) value also increases. Essentially, the code adjusts the self.mode 
   variable based on user interactions, incrementing or decrementing it to change the rover's speed.
  * It is responsible for handling incoming messages on a specific topic. When a message is received, the callback function processes it, updates internal state and variables There are actually two modes to run a rover. One is Steering and other is Full Potential Depending the incoming message. 
-#### steer function() -> 
-has 2 modes, mode = 0(for relative steer) and mode = 1(for absolute steer,doesnt depend upon initial angle value and steers to final angle value)
-the **pwm** values for each of the 4 wheels is decided by the proportional factor in PID.
  
 #### steering()->
  > for all these corresponding conditions, data from joycallback is used.
@@ -37,4 +37,7 @@ the **pwm** values for each of the 4 wheels is decided by the proportional facto
 * if oppdir value isnt 0 and samedir < threshold then fron wheels and back wheels rotate in opposite direction.
 if steering is locked and full potential unlocked u can control each wheel individually with different speeds based on the value of each wheel axes.
 
+#### steer function() -> 
+has 2 modes, mode = 0(for relative steer) and mode = 1(for absolute steer,doesnt depend upon initial angle value and steers to final angle value)
+the **pwm** values for each of the 4 wheels is decided by the proportional factor in PID.
 
