@@ -7,13 +7,17 @@ The node is **subscribed** to 'joy' and 'encoder' topics. publishing to 'motor_r
  * modeupbtn and modednbtn are used to increment and decrement the pwm values respectively.
  * 
 #### enc_Callback function() ->
- *
+ * The enc_callback function in the code is responsible for processing encoder data received from the rover's wheels.
+ * It receives Encoder Data and updates Encoder Values.It updates the current encoder readings (enc_data) with the new data.
+
+#### joycallback()->
+ * The modeupbtn and modednbtn variables serve as indices in the d_arr array. As the index increases, the corresponding PWM (Pulse Width Modulation) value also increases. Essentially, the code adjusts the mode 
+  variable based on user interactions, incrementing or decrementing it to change the rover's speed.
+ * 
 #### steer function() -> 
 has 2 modes, mode = 0(for relative steer) and mode = 1(for absolute steer,doesnt depend upon initial angle value and steers to final angle value)
 the **pwm** values for each of the 4 wheels is decided by the proportional factor in PID.
-#### joycallback()->
- * modeupbtn and modednbtn are used as indices in d_arr, higher the index higher the pwm value.
- *  
+ 
 #### steering()->
 for all these corresponding conditions data from joycallback is used.
 if both steering and full potential is locked (this aquires data from joycallback under this same condition) and
