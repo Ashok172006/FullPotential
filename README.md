@@ -12,6 +12,7 @@ the **pwm** values for each of the 4 wheels is decided by the proportional facto
  * modeupbtn and modednbtn are used as indices in d_arr, higher the index higher the pwm value.
  *  
 #### steering()->
+for all these corresponding conditions data from joycallback is used.
 if both steering and full potential is locked (this aquires data from joycallback under this same condition) and
 * if forward button is pressed then wheels steer to absolute 0 degree position, since mode==1.
 * if parallel button is pressed then wheels are turned to a 90 degree absolute position as mode==1.
@@ -22,4 +23,6 @@ if steering is unlocked and fullpotential is locked
 * if parallel button is pressed same happens except in anticlockwise.
 * if samedir axis value isnt 0 and oppdir value is less than threshold then all wheels rotate with same direction and speed.
 * if oppdir value isnt 0 and samedir < threshold then fron wheels and back wheels rotate in opposite direction.
-  
+if steering is locked and full potential unlocked u can control each wheel individually with different speeds based on the value of each wheel axes.
+
+
