@@ -22,7 +22,7 @@ This is a Python script that implements a drive node for an autonomous rover usi
  * It receives Encoder Data and updates the current encoder readings (enc_data) with the new data.
 
 #### joycallback()->
- * The modeupbtn and modednbtn variables serve as indices in the d_arr array. As the index increases, the corresponding PWM (Pulse Width Modulation) value also increases. Essentially, the code adjusts the self.mode 
+ * The modeupbtn and modednbtn variables serve as indices in the d_arr array. As the index increases, the corresponding PWM (Pulse Width Modulation) value also increases. Essentially, the code adjusts the self.mode.
   variable based on user interactions, incrementing or decrementing it to change the rover's speed.
  * It is responsible for handling incoming messages on a specific topic. When a message is received, the callback function processes it, updates internal state and variables There are actually two modes to run a rover. One is Steering and other is Full Potential Depending the incoming message. 
  
@@ -31,11 +31,11 @@ This is a Python script that implements a drive node for an autonomous rover usi
 #### if both steering and full potential is locked (this aquires data from joycallback under this same condition) and
   * if forward button is pressed then wheels steer to absolute 0 degree position, since mode==1.
   * if parallel button is pressed then wheels are turned to a 90 degree absolute position as mode==1.
-  * if rotinplace button is pressed then the wheels get allinged in a manner given below in the image and it moves in such a direction that the whole rover rotates in its same place
+  * if rotinplace button is pressed then the wheels get allinged in a manner given below in the image so that and it moves in such a direction that the whole rover rotates in its same place
     
     ![Screenshot 2024-07-16 013248](https://github.com/user-attachments/assets/9fe5623b-bbd8-4e8a-b9f4-8fb414ee863a)
 
-  *  then velocity temp is given and the rover rotates with temp at the same place.
+  *  Then velocity temp is given and the rover rotates with temp at the same place.
 #### if steering is unlocked and fullpotential is locked
 * and forward button is pressed then we get the current wheel angle from encode callback and use it as initial angle and then turn it 45 degrees relatively clockwise w.r.t to initial angle since mode==0.
 * if parallel button is pressed same happens except in anticlockwise.
