@@ -31,7 +31,8 @@ This is a Python script that implements a drive node for an autonomous rover usi
 #### if both steering and full potential is locked (this aquires data from joycallback under this same condition) and
   * if forward button is pressed then wheels steer to absolute 0 degree position, since mode==1.
   * if parallel button is pressed then wheels are turned to a 90 degree absolute position as mode==1.
-  * if rotinplace button is pressed then 
+  * if rotinplace button is pressed then the wheels get allinged in a manner given below in the image and it moves in such a direction that the whole rover rotates in its same place
+    
   *  
 #### if steering is unlocked and fullpotential is locked
 * and forward button is pressed then we get the current wheel angle from encode callback and use it as initial angle and then turn it 45 degrees relatively clockwise w.r.t to initial angle since mode==0.
@@ -46,7 +47,7 @@ This is a Python script that implements a drive node for an autonomous rover usi
 the **pwm** values for each of the 4 wheels is decided by the proportional factor in PID.
 
 #### drive()->
-if steering complete is true , steering and full potential both are locked:
-* if rot in place is true -> meaning the rotinplace button is pressed and from the steering() function for the same above conditions we infer that in rotinplace = true the wheels have been aligned as 45,-45,-45,45 to rotate in place, so it rotates CW or CCW based on left or right values from drive_ctrl.
-* if rot in place not true -> then both velocity and angular velocity is used for normal control.if both the vel and ang_vel ques are full then avg_vel is calculated then current vel value is added to que and one value from que is removed if que is full.
-* to control left right direction , all wheels move with same velocity but depending on omega -> if omega is 0 then all move straight. if u give omega to the left side wheels then rover turns right and vice versa.
+If steering complete is true and both steering and full potential are locked :
+* If rot in place is true -> It means that the rotinplace button is pressed, and from the steering() function for the same above conditions we infer that in rotinplace = true the wheels have been aligned as 45,-45,-45,45 to rotate in place, so it rotates CW or CCW based on left or right values from drive_ctrl.
+* If rot in place not true -> then both velocity and angular velocity is used for normal control.if both the vel and ang_vel ques are full then avg_vel is calculated then current vel value is added to que and one value from que is removed if que is full.
+* To control left right direction , all wheels move with same velocity but depending on omega -> if omega is 0 then all move straight. if u give omega to the left side wheels then rover turns right and vice versa.
