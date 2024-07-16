@@ -33,6 +33,8 @@ This is a Python script that implements a drive node for an autonomous rover usi
   * if parallel button is pressed then wheels are turned to a 90 degree absolute position as mode==1.
   * if rotinplace button is pressed then the wheels get allinged in a manner given below in the image and it moves in such a direction that the whole rover rotates in its same place
     
+    ![Screenshot 2024-07-16 013248](https://github.com/user-attachments/assets/9fe5623b-bbd8-4e8a-b9f4-8fb414ee863a)
+
   *  
 #### if steering is unlocked and fullpotential is locked
 * and forward button is pressed then we get the current wheel angle from encode callback and use it as initial angle and then turn it 45 degrees relatively clockwise w.r.t to initial angle since mode==0.
