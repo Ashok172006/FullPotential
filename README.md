@@ -45,3 +45,8 @@ This is a Python script that implements a drive node for an autonomous rover usi
 * It has 2 modes, mode = 0(for relative steer) and mode = 1(for absolute steer,doesnt depend upon initial angle value and steers to final angle value)
 the **pwm** values for each of the 4 wheels is decided by the proportional factor in PID.
 
+#### drive()->
+if steering complete is true , steering and full potential both are locked:
+* if rot in place is true -> meaning the rotinplace button is pressed and from the steering() function for the same above conditions we infer that in rotinplace = true the wheels have been aligned as 45,-45,-45,45 to rotate in place, so it rotates CW or CCW based on left or right values from drive_ctrl.
+* if rot in place not true -> then both velocity and angular velocity is used for normal control.if both the vel and ang_vel ques are full then avg_vel is calculated then current vel value is added to que and one value from que is removed if que is full.
+* to control left right direction , all wheels move with same velocity but depending on omega -> if omega is 0 then all move straight. if u give omega to the left side wheels then rover turns right and vice versa.
