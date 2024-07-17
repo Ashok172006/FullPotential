@@ -28,7 +28,7 @@ This is a Python script that implements a drive node for an autonomous rover usi
  
 #### steering()->
 
-![full_potential (1)](https://github.com/user-attachments/assets/57d76e29-046c-475b-bf6a-0d650ab113da)
+![full_potential (2)](https://github.com/user-attachments/assets/7f1a39bf-8320-43fc-9c9d-2c808e805d08)
 
  > for all these corresponding conditions, data from joycallback is used.
 #### if both steering and full potential is locked (this aquires data from joycallback under this same condition) and
