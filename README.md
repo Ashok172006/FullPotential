@@ -49,6 +49,8 @@ This is a Python script that implements a drive node for an autonomous rover usi
 the **pwm** values for each of the 4 wheels is decided by the proportional factor in PID.
 
 #### drive()->
+![full_potential](https://github.com/user-attachments/assets/5fe7f1fa-ae5d-49f0-8744-49f7dd22d148)
+
 If steering complete is true and both steering and full potential are locked :
 * If rot in place is true -> It means that the rotinplace button is pressed, and from the steering() function for the same above conditions we infer that in rotinplace = true the wheels have been aligned as 45,-45,-45,45 to rotate in place, so it rotates CW or CCW based on left or right values from drive_ctrl.
 * If rot in place not true -> then both velocity and angular velocity is used for normal control.if both the vel and ang_vel ques are full then avg_vel is calculated then current vel value is added to que and one value from que is removed if que is full.
