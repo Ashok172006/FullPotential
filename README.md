@@ -27,6 +27,9 @@ This is a Python script that implements a drive node for an autonomous rover usi
  * It is responsible for handling incoming messages on a specific topic. When a message is received, the callback function processes it, updates internal state and variables There are actually two modes to run a rover. One is Steering and other is Full Potential Depending the incoming message. 
  
 #### steering()->
+
+![full_potential (1)](https://github.com/user-attachments/assets/57d76e29-046c-475b-bf6a-0d650ab113da)
+
  > for all these corresponding conditions, data from joycallback is used.
 #### if both steering and full potential is locked (this aquires data from joycallback under this same condition) and
   * if forward button is pressed then wheels steer to absolute 0 degree position, since mode==1.
@@ -40,7 +43,7 @@ This is a Python script that implements a drive node for an autonomous rover usi
 * and forward button is pressed then we get the current wheel angle from encode callback and use it as initial angle and then turn it 45 degrees relatively clockwise w.r.t to initial angle since mode==0.
 * if parallel button is pressed same happens except in anticlockwise.
 * if samedir axis value isnt 0 and oppdir value is less than threshold then all wheels rotate with same direction and speed.
-* if oppdir value isnt 0 and samedir < threshold then fron wheels and back wheels rotate in opposite direction.
+* if oppdir value isnt 0 and samedir < threshold then front wheels and back wheels rotate in opposite direction.
 #### if steering is locked and full potential unlocked
 * we can control each wheel individually with different speeds based on the value of each wheel axes.
 
